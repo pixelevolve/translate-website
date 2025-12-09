@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://translate.pixel-evolve.com/sitemap.xml

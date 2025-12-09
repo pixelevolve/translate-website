@@ -20,26 +20,28 @@ const legalLinks = [
       <!-- Logo and Badge -->
       <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
         <!-- Custom Footer Logo -->
-        <a href="/" class="flex items-center gap-2">
-          <div class="flex items-center justify-center w-8 h-8">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-6 h-6">
-              <circle cx="16" cy="16" r="14" fill="#10b981"/>
-              <path d="M10 16h12M16 10v12" stroke="white" stroke-width="2" stroke-linecap="round"/>
-              <circle cx="16" cy="16" r="6" stroke="white" stroke-width="2" fill="none"/>
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="relative flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 shadow-md shadow-emerald-500/20 group-hover:shadow-emerald-500/30 transition-shadow">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 3c-2.5 3-4 6.5-4 9s1.5 6 4 9c2.5-3 4-6.5 4-9s-1.5-6-4-9z" />
+              <path d="M3 12h18" />
             </svg>
           </div>
-          <div class="flex flex-col">
-            <span class="text-lg font-semibold text-white leading-tight">
+          <div class="flex items-baseline gap-1.5">
+            <span class="text-[15px] font-semibold text-white group-hover:text-emerald-400 transition-colors">
               Shopify AI Translator
             </span>
-            <a
-              href="https://pixel-evolve.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-xs text-gray-400 hover:text-emerald-400 transition-colors leading-tight"
-            >
-              by PixelEvolve
-            </a>
+            <span class="text-xs text-gray-500">
+              by
+              <a
+                href="https://pixel-evolve.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-500 hover:text-emerald-400 transition-colors"
+                onclick="event.stopPropagation()"
+              >PixelEvolve</a>
+            </span>
           </div>
         </a>
 
