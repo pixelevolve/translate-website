@@ -1,0 +1,118 @@
+---
+import Logo from "./Logo.astro";
+
+const productLinks = [
+  { label: "Features", href: "#features" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "FAQ", href: "#faq" },
+];
+
+const legalLinks = [
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Service", href: "/terms" },
+];
+---
+
+<footer class="bg-gray-900 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <!-- Top Section -->
+    <div class="flex flex-col lg:flex-row justify-between items-start gap-8 pb-8 border-b border-gray-800">
+      <!-- Logo and Badge -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <!-- Custom Footer Logo -->
+        <a href="/" class="flex items-center gap-2">
+          <div class="flex items-center justify-center w-8 h-8">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-6 h-6">
+              <circle cx="16" cy="16" r="14" fill="#10b981"/>
+              <path d="M10 16h12M16 10v12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="16" cy="16" r="6" stroke="white" stroke-width="2" fill="none"/>
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-lg font-semibold text-white leading-tight">
+              Shopify AI Translator
+            </span>
+            <a
+              href="https://pixel-evolve.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-xs text-gray-400 hover:text-emerald-400 transition-colors leading-tight"
+            >
+              by PixelEvolve
+            </a>
+          </div>
+        </a>
+
+        <!-- Stockholm Badge -->
+        <div class="flex items-center gap-2 px-3 py-1.5 bg-gray-800 rounded-full text-sm text-gray-300">
+          <span>🇸🇪</span>
+          <span>Engineered in Stockholm</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Links Section -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 py-8 border-b border-gray-800">
+      <!-- Product -->
+      <div>
+        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
+          Product
+        </h3>
+        <ul class="space-y-3">
+          {productLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-gray-300 hover:text-white transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
+          Legal
+        </h3>
+        <ul class="space-y-3">
+          {legalLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-gray-300 hover:text-white transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
+          Contact
+        </h3>
+        <a
+          href="mailto:support@pixel-evolve.com"
+          class="text-gray-300 hover:text-white transition-colors"
+        >
+          support@pixel-evolve.com
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="pt-8 text-center sm:text-left">
+      <p class="text-gray-400 text-sm">
+        &copy; 2025 PixelEvolve AB. All rights reserved.
+      </p>
+      <p class="text-gray-500 text-sm mt-1">
+        Org.nr: 559493-7418 | Stockholm, Sweden
+      </p>
+    </div>
+  </div>
+</footer>

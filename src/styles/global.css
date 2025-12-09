@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-gray-900 antialiased;
+  }
+}
+
+/* Custom component styles */
+@layer components {
+  /* Button transitions */
+  .btn {
+    @apply transition-all duration-200 ease-out;
+  }
+
+  .btn-primary {
+    @apply bg-emerald-500 text-white px-6 py-3 rounded-lg font-semibold;
+  }
+
+  .btn-primary:hover {
+    @apply bg-emerald-600;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+  }
+
+  .btn-primary-large {
+    @apply bg-emerald-500 text-white px-8 py-4 rounded-lg font-semibold text-lg;
+  }
+
+  .btn-primary-large:hover {
+    @apply bg-emerald-600;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+  }
+
+  .btn-ghost {
+    @apply bg-transparent border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-medium;
+  }
+
+  .btn-ghost:hover {
+    @apply bg-gray-50 border-gray-400;
+  }
+
+  .btn-blue {
+    @apply bg-blue-500 text-white px-6 py-3 rounded-lg font-medium;
+  }
+
+  .btn-blue:hover {
+    @apply bg-blue-600;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  }
+
+  /* Header shadow on scroll */
+  .header-shadow {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Pricing card hover */
+  .pricing-card {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  /* FAQ accordion */
+  .faq-item {
+    @apply bg-white border border-gray-200 rounded-xl overflow-hidden;
+  }
+
+  .faq-question {
+    @apply p-5 flex justify-between items-center cursor-pointer font-medium text-gray-900;
+  }
+
+  .faq-question:hover {
+    @apply bg-gray-50;
+  }
+
+  .faq-icon {
+    @apply transition-transform duration-300 ease-out;
+  }
+
+  .faq-item.open .faq-icon {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    @apply px-5 pb-5 text-gray-600 leading-relaxed;
+    display: none;
+  }
+
+  .faq-item.open .faq-answer {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+
+  /* Trust badge */
+  .trust-badge {
+    @apply flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full text-sm text-gray-700;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile menu animation */
+.mobile-menu {
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af"/>
+      <stop offset="50%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#10b981"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Logo Circle -->
+  <circle cx="100" cy="80" r="30" fill="#10b981"/>
+  <path d="M85 80h30M100 65v30" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="100" cy="80" r="12" stroke="white" stroke-width="3" fill="none"/>
+
+  <!-- Title -->
+  <text x="145" y="90" font-family="system-ui, sans-serif" font-size="28" font-weight="600" fill="white">Shopify AI Translator</text>
+
+  <!-- Main Headline -->
+  <text x="100" y="280" font-family="system-ui, sans-serif" font-size="56" font-weight="700" fill="white">Translate your store</text>
+  <text x="100" y="350" font-family="system-ui, sans-serif" font-size="56" font-weight="700" fill="white">in minutes, not days</text>
+
+  <!-- Subheadline -->
+  <text x="100" y="420" font-family="system-ui, sans-serif" font-size="24" fill="rgba(255,255,255,0.8)">AI-powered translation with smart brand protection</text>
+
+  <!-- Badge -->
+  <rect x="100" y="480" width="280" height="44" rx="22" fill="rgba(255,255,255,0.15)"/>
+  <text x="130" y="510" font-family="system-ui, sans-serif" font-size="20" fill="white">🇸🇪 Engineered in Stockholm</text>
+
+  <!-- Decorative elements -->
+  <circle cx="1050" cy="150" r="80" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="1100" cy="450" r="120" fill="rgba(255,255,255,0.05)"/>
+</svg>

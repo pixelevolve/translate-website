@@ -1,0 +1,61 @@
+---
+import FeatureCard from "./FeatureCard.astro";
+
+const features = [
+  {
+    icon: "🚀",
+    title: "Lightning Fast",
+    description: "Translate 50 products in under 5 minutes. No more waiting for manual translations.",
+  },
+  {
+    icon: "🛡️",
+    title: "Brand Protection",
+    description: "Your brand names, product lines, and key terms stay untouched. Always.",
+  },
+  {
+    icon: "💰",
+    title: "Transparent Pricing",
+    description: "Know exactly what you pay. No per-word fees. No hidden charges. No surprises.",
+  },
+  {
+    icon: "🎯",
+    title: "Quality Translation",
+    description: "E-commerce optimized AI prompts deliver natural, conversion-focused copy.",
+  },
+  {
+    icon: "🔄",
+    title: "Auto Sync",
+    description: "Products update in your store? Translations sync automatically. Stay current effortlessly.",
+  },
+  {
+    icon: "💬",
+    title: "Human Support",
+    description: "Real humans respond to your questions in under 4 hours. We're here for you.",
+  },
+];
+---
+
+<section id="features" class="bg-white py-20 lg:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+        Why merchants love us
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Everything you need to expand your store globally
+      </p>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {features.map((feature) => (
+        <FeatureCard
+          icon={feature.icon}
+          title={feature.title}
+          description={feature.description}
+        />
+      ))}
+    </div>
+  </div>
+</section>

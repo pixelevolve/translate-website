@@ -1,0 +1,108 @@
+---
+import Logo from "./Logo.astro";
+import MobileMenu from "./MobileMenu.astro";
+
+const navItems = [
+  { label: "Features", href: "#features" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "FAQ", href: "#faq" },
+];
+
+const installUrl = "#"; // Will be replaced with actual Shopify App Store URL
+---
+
+<header
+  id="header"
+  class="fixed top-0 left-0 right-0 z-40 bg-white transition-shadow duration-200"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <Logo />
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-8">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class="text-gray-600 hover:text-gray-900 font-medium transition-colors"
+          >
+            {item.label}
+          </a>
+        ))}
+
+        <!-- Install CTA -->
+        <a
+          href={installUrl}
+          class="btn btn-primary text-sm px-5 py-2.5"
+        >
+          Install Free
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="open-menu-btn"
+        type="button"
+        class="lg:hidden p-2 text-gray-500 hover:text-gray-900 transition-colors"
+        aria-label="Open menu"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu Component -->
+<MobileMenu />
+
+<!-- Header scroll shadow script -->
+<script>
+  function initHeaderScroll() {
+    const header = document.getElementById('header');
+    if (!header) return;
+
+    function updateHeaderShadow() {
+      if (window.scrollY > 10) {
+        header.classList.add('header-shadow');
+      } else {
+        header.classList.remove('header-shadow');
+      }
+    }
+
+    window.addEventListener('scroll', updateHeaderShadow, { passive: true });
+    updateHeaderShadow(); // Initial check
+  }
+
+  // Initialize on page load
+  initHeaderScroll();
+
+  // Re-initialize on page navigation
+  document.addEventListener('astro:page-load', initHeaderScroll);
+</script>
+
+<!-- Smooth scroll for anchor links -->
+<script>
+  function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return;
+
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  }
+
+  initSmoothScroll();
+  document.addEventListener('astro:page-load', initSmoothScroll);
+</script>

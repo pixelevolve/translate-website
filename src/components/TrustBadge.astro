@@ -1,0 +1,14 @@
+---
+interface Props {
+  icon: string;
+  text: string;
+  class?: string;
+}
+
+const { icon, text, class: className = "" } = Astro.props;
+---
+
+<div class:list={["trust-badge", className]}>
+  <span class="text-base">{icon}</span>
+  <span>{text}</span>
+</div>

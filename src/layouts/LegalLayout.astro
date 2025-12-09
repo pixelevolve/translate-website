@@ -1,0 +1,63 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const fullTitle = `${title} | Shopify AI Translator`;
+---
+
+<BaseLayout title={fullTitle} description={description}>
+  <div class="min-h-screen flex flex-col">
+    <!-- Simple Header -->
+    <header class="bg-white border-b border-gray-200">
+      <div class="max-w-4xl mx-auto px-4 py-4">
+        <a href="/" class="flex items-center gap-2 text-gray-900 hover:text-emerald-600 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          <span class="font-semibold">Back to Home</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 py-12">
+      <div class="max-w-3xl mx-auto px-4">
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">{title}</h1>
+        <article class="prose prose-gray max-w-none">
+          <slot />
+        </article>
+      </div>
+    </main>
+
+    <!-- Simple Footer -->
+    <footer class="bg-gray-50 border-t border-gray-200 py-8">
+      <div class="max-w-4xl mx-auto px-4 text-center text-sm text-gray-500">
+        <p>&copy; 2025 PixelEvolve AB. All rights reserved.</p>
+        <p class="mt-1">Org.nr: 559493-7418 | Stockholm, Sweden</p>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>
+
+<style>
+  .prose h2 {
+    @apply text-xl font-semibold text-gray-900 mt-8 mb-4;
+  }
+  .prose h3 {
+    @apply text-lg font-medium text-gray-900 mt-6 mb-3;
+  }
+  .prose p {
+    @apply text-gray-600 leading-relaxed mb-4;
+  }
+  .prose ul {
+    @apply list-disc list-inside text-gray-600 mb-4 space-y-2;
+  }
+  .prose a {
+    @apply text-emerald-600 hover:text-emerald-700 underline;
+  }
+</style>

@@ -1,0 +1,196 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": "1",
+        "title": "Initialize Astro Project with Tailwind CSS",
+        "description": "Set up the Astro 4.x project structure with Tailwind CSS integration and configure the basic development environment.",
+        "details": "1. Initialize Astro project using `npm create astro@latest` with the following options:\n   - Template: empty\n   - TypeScript: strict\n   - Install dependencies: yes\n\n2. Install and configure Tailwind CSS:\n   ```bash\n   npx astro add tailwind\n   ```\n\n3. Create `tailwind.config.mjs` with custom theme extending colors:\n   - emerald-500/600 for primary CTA buttons\n   - blue-500/600 for secondary buttons\n   - gray-900 (#111827) for footer background\n   - Custom gradient stops for hero background\n\n4. Set up `src/styles/global.css` with Tailwind directives and custom CSS for:\n   - Button transitions and hover effects\n   - FAQ accordion animations\n   - Scroll shadow effects for header\n\n5. Configure `astro.config.mjs` with:\n   - Site URL: https://translate.pixel-evolve.com\n   - Output: static\n   - Build options for Cloudflare Pages compatibility\n\n6. Create basic directory structure:\n   ```\n   src/\n   ├── layouts/\n   ├── components/\n   ├── pages/\n   └── styles/\n   public/\n   ├── favicon.svg\n   └── robots.txt\n   ```\n\n7. Add robots.txt with sitemap reference",
+        "testStrategy": "Verify: 1) `npm run dev` starts development server without errors, 2) Tailwind classes apply correctly in a test component, 3) Project builds successfully with `npm run build`, 4) Output directory structure matches Astro conventions",
+        "priority": "high",
+        "dependencies": [],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-09T09:12:31.383Z"
+      },
+      {
+        "id": "2",
+        "title": "Create Base Layout and SEO Configuration",
+        "description": "Build the BaseLayout.astro component with comprehensive SEO meta tags, Open Graph, Twitter cards, and JSON-LD structured data.",
+        "details": "1. Create `src/layouts/BaseLayout.astro` with:\n   - HTML5 doctype and lang attribute\n   - Viewport meta tag for responsive design\n   - Character encoding (UTF-8)\n\n2. Implement SEO meta tags:\n   ```astro\n   <title>Shopify AI Translator - Translate Your Store in Minutes | PixelEvolve</title>\n   <meta name=\"description\" content=\"AI-powered translation app for Shopify...\" />\n   <meta name=\"keywords\" content=\"Shopify translation, AI translation...\" />\n   <link rel=\"canonical\" href=\"https://translate.pixel-evolve.com/\" />\n   ```\n\n3. Add Open Graph tags:\n   - og:title, og:description, og:image (1200x630), og:url, og:type\n\n4. Add Twitter Card meta tags:\n   - twitter:card (summary_large_image)\n\n5. Implement JSON-LD structured data for SoftwareApplication schema with:\n   - name, applicationCategory, operatingSystem\n   - offers array for Free ($0), Basic ($19), Pro ($49) plans\n   - author (PixelEvolve AB organization)\n\n6. Include global styles and fonts\n7. Add favicon link\n8. Create props interface for dynamic page titles and descriptions",
+        "testStrategy": "Validate: 1) All meta tags render correctly in page source, 2) JSON-LD validates using Google's Rich Results Test, 3) Open Graph preview works using Facebook Sharing Debugger or similar tool, 4) Layout accepts and renders slot content properly",
+        "priority": "high",
+        "dependencies": [
+          "1"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-09T09:13:22.317Z"
+      },
+      {
+        "id": "3",
+        "title": "Build Header Component with Mobile Navigation",
+        "description": "Create a sticky header with logo, navigation links, install button, and mobile hamburger menu with slide-in animation.",
+        "details": "1. Create `src/components/Logo.astro`:\n   - Logo icon (24px) + product name (18px, font-weight: 600)\n   - 'by PixelEvolve' subtitle (12px, color: #6b7280)\n   - Link subtitle to pixel-evolve.com\n\n2. Create `src/components/Header.astro`:\n   - Height: 64px, background: white\n   - Position: sticky, top: 0, z-index: 100\n   - Shadow on scroll: `0 1px 3px rgba(0,0,0,0.1)`\n   - Navigation items: Features, Pricing, FAQ (smooth scroll anchors)\n   - 'Install Free' button (Primary small style, emerald-500)\n\n3. Create `src/components/MobileMenu.astro`:\n   - Hamburger icon visible below 768px\n   - Fullscreen overlay menu (slide from right, 300ms ease)\n   - Close button (×)\n   - Centered navigation items + Install Free CTA\n   - White background\n\n4. Add client-side JavaScript for:\n   - Toggle mobile menu open/close\n   - Add shadow class on scroll (window.scrollY > 10)\n   - Close menu on link click\n   - Smooth scroll to section anchors\n\n5. Implement responsive breakpoints:\n   - Desktop (≥1024px): Full navigation visible\n   - Mobile (<768px): Hamburger menu only",
+        "testStrategy": "Test: 1) Header stays sticky on scroll, 2) Shadow appears after 10px scroll, 3) Mobile menu opens/closes smoothly, 4) Navigation links scroll to correct sections, 5) Mobile menu closes when link is clicked, 6) Logo link works correctly",
+        "priority": "high",
+        "dependencies": [
+          "1",
+          "2"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-09T09:14:10.473Z"
+      },
+      {
+        "id": "4",
+        "title": "Build Hero Section with Trust Badges",
+        "description": "Create the hero section with gradient background, headline, subheadline, CTA button, trust badges, and product screenshot placeholder.",
+        "details": "1. Create `src/components/TrustBadge.astro`:\n   - Props: icon, text\n   - Pill-shaped badge (border-radius: 9999px)\n   - White background, 1px border (#e5e7eb)\n   - Padding: 8px 16px, font-size: 14px\n\n2. Create `src/components/Hero.astro`:\n   - Background gradient: `linear-gradient(180deg, #f8fafc 0%, #eff6ff 50%, #ecfdf5 100%)`\n   - Min-height: 90vh, padding: 120px 0 80px (desktop), 80px 20px 60px (mobile)\n   - Max-width: 1200px, centered\n\n3. Implement content hierarchy:\n   - Product identifier: '🌐 Shopify AI Translator' (16px, text-gray-500)\n   - H1 headline: 'Translate your store in minutes, not days' (48px desktop, 32px mobile)\n   - Subheadline: 'AI-powered translation with smart brand protection' (20px, max-width: 600px)\n   - CTA button: 'Install Free →' (emerald-500, hover:emerald-600, translateY(-2px) on hover)\n   - Trust note: 'Free plan • No credit card required' (14px, text-gray-500)\n\n4. Add trust badges row:\n   - '✓ Built for Shopify'\n   - '🇸🇪 Engineered in Stockholm'\n   - '⚡ Powered by GPT-4'\n\n5. Product screenshot container:\n   - Max-width: 900px, border-radius: 12px\n   - Shadow: `0 25px 50px -12px rgba(0, 0, 0, 0.15)`\n   - Border: 1px solid #e5e7eb\n   - Background: light gray (#f9fafb) as placeholder",
+        "testStrategy": "Verify: 1) Gradient background renders correctly, 2) All text sizes adjust properly at mobile breakpoint, 3) CTA button has correct hover animation, 4) Trust badges wrap nicely on mobile, 5) Screenshot placeholder displays with correct styling",
+        "priority": "high",
+        "dependencies": [
+          "1",
+          "2"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-09T09:14:47.935Z"
+      },
+      {
+        "id": "5",
+        "title": "Build Features Section with 6 Feature Cards",
+        "description": "Create the features section displaying 6 feature cards in a responsive grid layout with icons, titles, and descriptions.",
+        "details": "1. Create `src/components/FeatureCard.astro`:\n   - Props: icon (emoji), title, description\n   - Text-align: center, padding: 32px 24px\n   - Icon size: 48px, margin-bottom: 16px\n   - Title: 20px, font-weight: 600, color: #111827\n   - Description: 16px, color: #6b7280, line-height: 1.6\n\n2. Create `src/components/Features.astro`:\n   - Section id: 'features'\n   - Background: white (#ffffff)\n   - Padding: 80px 0, max-width: 1200px\n   - Section title: 'Why merchants love us'\n\n3. Implement responsive grid:\n   - Desktop: 3 columns, gap: 32px\n   - Tablet: 2 columns\n   - Mobile: 1 column\n\n4. Feature content:\n   - 🚀 Lightning Fast: 'Translate 50 products in under 5 minutes...'\n   - 🛡️ Brand Protection: 'Your brand names, product lines...'\n   - 💰 Transparent Pricing: 'Know exactly what you pay...'\n   - 🎯 Quality Translation: 'E-commerce optimized AI prompts...'\n   - 🔄 Auto Sync: 'Products update in your store?...'\n   - 💬 Human Support: 'Real humans respond to your questions...'",
+        "testStrategy": "Test: 1) Grid layout adjusts correctly at all breakpoints, 2) All 6 feature cards render with correct content, 3) Icons display properly (emoji support), 4) Card spacing is consistent, 5) Section scrolls to correctly from nav link",
+        "priority": "medium",
+        "dependencies": [
+          "1",
+          "2"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-09T09:15:28.248Z"
+      },
+      {
+        "id": "6",
+        "title": "Build How It Works Section with 3-Step Process",
+        "description": "Create the how-it-works section showing a 3-step process with numbered steps, connector lines, and a CTA button.",
+        "details": "1. Create `src/components/StepNumber.astro`:\n   - 48px × 48px circle\n   - Gradient background: `linear-gradient(135deg, #3b82f6 0%, #10b981 100%)`\n   - White number, 24px, font-weight: 700\n   - Margin: 0 auto 16px\n\n2. Create `src/components/HowItWorks.astro`:\n   - Background: light gray (#f9fafb)\n   - Padding: 80px 0, max-width: 1000px\n   - Section title: 'How it works'\n   - Subtitle: 'Get started in just 3 simple steps'\n\n3. Step content with icons:\n   - Step 1 (①): Install - 'Install our app from Shopify App Store. Takes 30 seconds.'\n   - Step 2 (②): Configure - 'Select your target languages and set up brand term protection.'\n   - Step 3 (③): Translate - 'Click translate and watch the magic happen. That\\'s it!'\n\n4. Implement connector lines (desktop only):\n   - Width: 100px, height: 2px\n   - Gradient: `linear-gradient(90deg, #3b82f6, #10b981)`\n   - Arrow indicator (▶) at end\n   - Hide on mobile (below 768px)\n\n5. Add 'Get Started →' CTA button below steps\n\n6. Responsive layout:\n   - Desktop: horizontal 3-column with connectors\n   - Mobile: vertical stacked without connectors",
+        "testStrategy": "Verify: 1) Step numbers display with gradient background, 2) Connector lines appear on desktop only, 3) Layout stacks vertically on mobile, 4) CTA button links correctly to Shopify App Store, 5) Content matches PRD specifications",
+        "priority": "medium",
+        "dependencies": [
+          "1",
+          "2"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-09T09:16:05.172Z"
+      },
+      {
+        "id": "7",
+        "title": "Build Pricing Section with 3-Tier Cards",
+        "description": "Create the pricing section with Free, Basic (featured), and Pro pricing cards including features list, pricing, and styled CTAs.",
+        "details": "1. Create `src/components/PricingCard.astro`:\n   - Props: tier, price, tagline, features[], button (text, style), isFeatured\n   - Standard card: white bg, 1px border (#e5e7eb), border-radius: 16px\n   - Featured card: 2px border (#10b981), box-shadow with emerald tint\n   - Hover effect: translateY(-4px), box-shadow increase\n   - Badge for featured: 'BEST VALUE' absolute positioned\n\n2. Create `src/components/Pricing.astro`:\n   - Section id: 'pricing'\n   - Background: white, padding: 80px 0\n   - Title: 'Simple, transparent pricing'\n   - Subtitle: 'No hidden fees. No complicated tiers. Just results.'\n\n3. Free Plan card:\n   - Price: $0/mo, tagline: 'Perfect for trying out'\n   - Features: 1 language, 200 products, Basic glossary (10 terms), Email support\n   - Excluded: Batch translation (✗)\n   - Button: 'Start Free' (ghost style)\n\n4. Basic Plan card (featured):\n   - Badge: '⭐ BEST VALUE'\n   - Price: $19/mo, tagline: 'For starting stores'\n   - Features: 2 languages, 500 products, Full glossary (50 terms), Email support, Batch translation\n   - Button: 'Choose Basic' (emerald primary)\n\n5. Pro Plan card:\n   - Price: $49/mo, tagline: 'For growing stores'\n   - Features: 5 languages, Unlimited products, Full glossary (unlimited), Priority queue, Priority support, Batch translation, API access\n   - Button: 'Go Pro' (blue primary)\n\n6. Footer text: 'All plans include: AI translation • Brand protection • Automatic sync • Quality validation • SEO-friendly hreflang support'\n\n7. Mobile reorder: Basic-Pro-Free (featured first)",
+        "testStrategy": "Test: 1) Featured card has distinct styling with badge, 2) Hover animations work on all cards, 3) Button styles match specifications (ghost, emerald, blue), 4) Mobile layout reorders correctly, 5) All features render with checkmarks/crosses",
+        "priority": "high",
+        "dependencies": [
+          "1",
+          "2"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-09T09:16:41.755Z"
+      },
+      {
+        "id": "8",
+        "title": "Build FAQ Section with Accordion",
+        "description": "Create the FAQ section with 7 expandable accordion items including smooth animations and single-open behavior.",
+        "details": "1. Create `src/components/FAQItem.astro`:\n   - Props: question, answer, defaultOpen (optional)\n   - White background, 1px border (#e5e7eb), border-radius: 12px\n   - Question area: padding 20px 24px, cursor: pointer\n   - Chevron icon rotation (180deg) when open\n   - Answer area: padding 0 24px 20px, hidden by default\n   - Hover background on question: #f9fafb\n\n2. Create `src/components/FAQ.astro`:\n   - Section id: 'faq'\n   - Background: light gray (#f9fafb)\n   - Padding: 80px 0, max-width: 800px\n   - Title: 'Frequently asked questions'\n   - Card gap: 12px\n\n3. FAQ content (7 items):\n   1. How does the AI translation work? (GPT-4o-mini, e-commerce optimized)\n   2. Will it translate my brand name incorrectly? (Glossary protection)\n   3. What languages do you support? (11 languages listed)\n   4. Will translated pages affect my SEO? (Boost SEO with hreflang)\n   5. How do I enable translated languages? (Shopify Markets setup)\n   6. What if I'm not satisfied? (Contact support, free re-translation)\n   7. Do you offer refunds? (30-day refund policy)\n\n4. Implement accordion JavaScript:\n   - Click to expand/collapse\n   - Single-open behavior (close others when one opens)\n   - Smooth animation: fadeIn 0.3s ease (opacity + translateY)\n\n5. Responsive adjustments:\n   - Desktop: max-width 800px, padding 24px\n   - Mobile: 100% width, padding 16px",
+        "testStrategy": "Verify: 1) Accordion opens/closes with animation, 2) Only one item open at a time, 3) Chevron rotates correctly, 4) All 7 FAQ items render with correct content, 5) Responsive padding adjusts at mobile breakpoint",
+        "priority": "medium",
+        "dependencies": [
+          "1",
+          "2"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-09T09:17:26.737Z"
+      },
+      {
+        "id": "9",
+        "title": "Build Final CTA and Footer Components",
+        "description": "Create the final CTA section with gradient card and footer with logo, navigation links, legal links, and company information.",
+        "details": "1. Create `src/components/FinalCTA.astro`:\n   - Outer: white background, padding: 80px 0\n   - Card: gradient `linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #10b981 100%)`\n   - Border-radius: 24px, padding: 64px, max-width: 900px\n   - All text white\n   - Headline: 'Ready to go global?' (36px, font-bold)\n   - Subheadline: 'Join hundreds of merchants who\\'ve expanded their reach...' (18px, white/80)\n   - Trust badges: white background, dark text (Stockholm, Built for Shopify)\n   - CTA: 'Install Free →' (white bg, emerald-600 text)\n   - Trust note: 'No credit card required' (14px, white/60)\n\n2. Create `src/components/Footer.astro`:\n   - Background: gray-900 (#111827)\n   - Padding: 60px 0 40px, max-width: 1200px\n   - Top row: Logo + 'Engineered in Stockholm' badge\n   - Divider line\n   - 3-column links:\n     * Product: Features, Pricing, FAQ (anchor links)\n     * Legal: Privacy Policy, Terms of Service (page links)\n     * Contact: support@pixel-evolve.com\n   - Bottom divider\n   - Copyright: '© 2025 PixelEvolve AB. All rights reserved.'\n   - Company info: 'Org.nr: 559493-7418 | Stockholm, Sweden'\n   - Text colors: primary white, secondary gray-400\n   - Link hover: white\n\n3. Responsive layout:\n   - Desktop: 3-column footer links\n   - Mobile: stacked single column",
+        "testStrategy": "Test: 1) Gradient renders correctly on CTA card, 2) CTA button has correct contrast on gradient, 3) Footer links navigate correctly, 4) Footer responsive layout works, 5) Email link opens mail client",
+        "priority": "medium",
+        "dependencies": [
+          "1",
+          "2",
+          "3"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-09T09:18:17.880Z"
+      },
+      {
+        "id": "10",
+        "title": "Assemble Homepage and Create Legal Pages",
+        "description": "Combine all components into the homepage, create legal pages with LegalLayout, and add all page-level configurations.",
+        "details": "1. Create `src/pages/index.astro`:\n   - Import BaseLayout and all section components\n   - Assemble in order:\n     * Header\n     * Hero (id: hero)\n     * Features (id: features)\n     * HowItWorks (id: how-it-works)\n     * Pricing (id: pricing)\n     * FAQ (id: faq)\n     * FinalCTA\n     * Footer\n   - Pass SEO props to BaseLayout\n\n2. Create `src/layouts/LegalLayout.astro`:\n   - Simplified layout for legal pages\n   - Header + Footer included\n   - Main content area with max-width: 800px\n   - Prose styling for markdown content\n   - Consistent padding and typography\n\n3. Create `src/pages/privacy.md`:\n   - Use LegalLayout as layout\n   - Title: 'Privacy Policy'\n   - Include standard privacy policy sections\n   - Company: PixelEvolve AB, contact: support@pixel-evolve.com\n\n4. Create `src/pages/terms.md`:\n   - Use LegalLayout as layout\n   - Title: 'Terms of Service'\n   - Include standard terms sections\n   - Governing law: Sweden\n\n5. Add public assets:\n   - Create placeholder OG image (1200x630)\n   - Ensure favicon.svg is in place\n   - robots.txt with sitemap reference\n\n6. Verify all anchor links work correctly",
+        "testStrategy": "Verify: 1) Homepage loads with all sections in correct order, 2) Smooth scroll navigation works for all anchors, 3) Legal pages render markdown content properly, 4) SEO meta tags are present on all pages, 5) Mobile menu works on all pages",
+        "priority": "high",
+        "dependencies": [
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-09T09:19:25.314Z"
+      },
+      {
+        "id": "11",
+        "title": "Implement Responsive Design and Interactions",
+        "description": "Add all responsive breakpoint adjustments, hover effects, scroll behaviors, and interactive JavaScript functionality.",
+        "details": "1. Implement responsive breakpoints:\n   - Mobile: < 640px\n   - Tablet: 640px - 1023px\n   - Desktop: ≥ 1024px\n\n2. Add smooth scroll behavior:\n   ```javascript\n   document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {\n     anchor.addEventListener('click', function(e) {\n       e.preventDefault();\n       document.querySelector(this.getAttribute('href')).scrollIntoView({\n         behavior: 'smooth',\n         block: 'start'\n       });\n     });\n   });\n   ```\n\n3. Header scroll shadow effect:\n   ```javascript\n   window.addEventListener('scroll', () => {\n     const header = document.querySelector('header');\n     header.classList.toggle('shadow-md', window.scrollY > 10);\n   });\n   ```\n\n4. Button hover transitions:\n   - transition: all 0.2s ease\n   - Primary: translateY(-2px), box-shadow emerald\n   - Pricing cards: translateY(-8px), enhanced shadow\n\n5. FAQ accordion logic:\n   - Single-open behavior\n   - Smooth expand/collapse animation\n   - Chevron rotation\n\n6. Mobile menu toggle:\n   - Open: slide from right\n   - Close on link click\n   - Body scroll lock when open\n\n7. Verify all hover states and transitions work across components",
+        "testStrategy": "Test at all breakpoints: 1) Layout adjusts correctly, 2) Hover effects work on desktop, 3) Touch interactions work on mobile, 4) Smooth scroll functions, 5) Header shadow appears/disappears, 6) All animations are smooth (60fps)",
+        "priority": "medium",
+        "dependencies": [
+          "10"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-09T09:20:10.429Z"
+      },
+      {
+        "id": "12",
+        "title": "Performance Optimization and Cloudflare Deployment",
+        "description": "Optimize assets, run Lighthouse audits, configure Cloudflare Pages deployment, and set up custom domain.",
+        "details": "1. Performance optimizations:\n   - Ensure all images are optimized (WebP format where possible)\n   - Add loading=\"lazy\" to below-fold images\n   - Minimize JavaScript bundle size\n   - Verify CSS is tree-shaken properly by Tailwind\n\n2. Run Lighthouse audit:\n   - Target scores: Performance > 90, Accessibility > 90, Best Practices > 90, SEO > 90\n   - Fix any identified issues\n\n3. Accessibility check:\n   - Ensure proper heading hierarchy (h1 → h2 → h3)\n   - Add aria-labels where needed\n   - Test keyboard navigation\n   - Verify color contrast ratios\n\n4. Build and verify production output:\n   ```bash\n   npm run build\n   npm run preview\n   ```\n\n5. Configure for Cloudflare Pages:\n   - Build command: `npm run build`\n   - Build output directory: `dist`\n   - Node.js version: 18+\n\n6. Deployment steps:\n   - Push code to GitHub repository\n   - Connect repo to Cloudflare Pages\n   - Configure custom domain: translate.pixel-evolve.com\n   - Verify SSL certificate is active\n\n7. Post-deployment verification:\n   - Test all pages on production\n   - Verify meta tags with social sharing debuggers\n   - Check sitemap.xml is accessible\n   - Test on multiple devices and browsers",
+        "testStrategy": "Validate: 1) Lighthouse scores meet targets, 2) Build completes without errors, 3) Preview server works correctly, 4) Cloudflare deployment succeeds, 5) Custom domain resolves, 6) SSL certificate is valid, 7) All features work in production",
+        "priority": "high",
+        "dependencies": [
+          "11"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-09T09:20:42.688Z"
+      }
+    ],
+    "metadata": {
+      "version": "1.0.0",
+      "lastModified": "2025-12-09T09:20:42.688Z",
+      "taskCount": 12,
+      "completedCount": 12,
+      "tags": [
+        "master"
+      ]
+    }
+  }
+}

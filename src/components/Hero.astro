@@ -1,0 +1,84 @@
+---
+import TrustBadge from "./TrustBadge.astro";
+
+const installUrl = "#"; // Will be replaced with actual Shopify App Store URL
+
+const trustBadges = [
+  { icon: "✓", text: "Built for Shopify" },
+  { icon: "🇸🇪", text: "Engineered in Stockholm" },
+  { icon: "⚡", text: "Powered by GPT-4" },
+];
+---
+
+<section
+  id="hero"
+  class="relative min-h-[90vh] flex items-center pt-16"
+  style="background: linear-gradient(180deg, #f8fafc 0%, #eff6ff 50%, #ecfdf5 100%);"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+    <div class="text-center">
+      <!-- Product Identifier -->
+      <div class="flex items-center justify-center gap-2 text-gray-500 mb-6">
+        <span class="text-xl">🌐</span>
+        <span class="text-base font-medium">Shopify AI Translator</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+        Translate your store in minutes,
+        <br class="hidden sm:block" />
+        <span class="text-emerald-600">not days</span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+        AI-powered translation with smart brand protection
+      </p>
+
+      <!-- CTA Button -->
+      <div class="mb-6">
+        <a
+          href={installUrl}
+          class="inline-flex items-center gap-2 btn btn-primary-large"
+        >
+          Install Free
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Trust Note -->
+      <p class="text-sm text-gray-500 mb-10">
+        Free plan • No credit card required
+      </p>
+
+      <!-- Trust Badges -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12">
+        {trustBadges.map((badge) => (
+          <TrustBadge icon={badge.icon} text={badge.text} />
+        ))}
+      </div>
+
+      <!-- Product Screenshot Placeholder -->
+      <div class="max-w-4xl mx-auto">
+        <div
+          class="relative bg-gray-100 rounded-xl border border-gray-200 overflow-hidden"
+          style="box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);"
+        >
+          <!-- Placeholder for product screenshot -->
+          <div class="aspect-video flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100">
+            <div class="text-center p-8">
+              <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-emerald-100 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                </svg>
+              </div>
+              <p class="text-gray-400 text-sm">Product screenshot coming soon</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

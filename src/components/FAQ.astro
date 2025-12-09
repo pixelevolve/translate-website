@@ -1,0 +1,104 @@
+---
+import FAQItem from "./FAQItem.astro";
+
+const faqs = [
+  {
+    question: "How does the AI translation work?",
+    answer:
+      "We use GPT-4o-mini, specifically optimized for e-commerce content. Our prompts are designed for product titles, descriptions, and SEO content to deliver natural, conversion-focused translations.",
+  },
+  {
+    question: "Will it translate my brand name incorrectly?",
+    answer:
+      "No! Our smart glossary feature protects your brand terms. You can specify which words should never be translated, and we automatically detect brand names from your product vendor field.",
+  },
+  {
+    question: "What languages do you support?",
+    answer:
+      "We support 11 languages: English, French, German, Spanish, Italian, Portuguese, Dutch, Japanese, Korean, Chinese (Simplified), and Chinese (Traditional). More coming soon!",
+  },
+  {
+    question: "Will translated pages affect my SEO?",
+    answer:
+      "Our translations actually boost your SEO! We use Shopify's native Markets feature with proper hreflang tags. Each language version gets indexed separately, expanding your reach in international search results.",
+  },
+  {
+    question: "How do I enable translated languages in my store?",
+    answer:
+      "After translation, enable the language in Shopify Admin → Settings → Markets. We provide step-by-step guidance in the app, and our support team is always happy to help.",
+  },
+  {
+    question: "What if I'm not satisfied?",
+    answer:
+      "Contact us at support@pixel-evolve.com. We offer free re-translation and will work with you until you're happy with the results.",
+  },
+  {
+    question: "Do you offer refunds?",
+    answer:
+      "Yes! If you're not satisfied within 30 days, we'll refund your payment. No questions asked.",
+  },
+];
+---
+
+<section id="faq" class="bg-gray-50 py-20 lg:py-24">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+        Frequently asked questions
+      </h2>
+      <p class="text-lg text-gray-600">
+        Everything you need to know about the app
+      </p>
+    </div>
+
+    <!-- FAQ Accordion -->
+    <div class="space-y-3" id="faq-accordion">
+      {faqs.map((faq, index) => (
+        <FAQItem
+          question={faq.question}
+          answer={faq.answer}
+          defaultOpen={index === 0}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  function initFaqAccordion() {
+    const accordion = document.getElementById('faq-accordion');
+    if (!accordion) return;
+
+    const items = accordion.querySelectorAll('.faq-item');
+    const questions = accordion.querySelectorAll('.faq-question');
+
+    questions.forEach((question) => {
+      question.addEventListener('click', () => {
+        const item = question.parentElement;
+        if (!item) return;
+
+        const isOpen = item.classList.contains('open');
+
+        // Close all items
+        items.forEach((i) => {
+          i.classList.remove('open');
+          const btn = i.querySelector('.faq-question');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        });
+
+        // Toggle current item
+        if (!isOpen) {
+          item.classList.add('open');
+          question.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  }
+
+  // Initialize on page load
+  initFaqAccordion();
+
+  // Re-initialize on page navigation
+  document.addEventListener('astro:page-load', initFaqAccordion);
+</script>
