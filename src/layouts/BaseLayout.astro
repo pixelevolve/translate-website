@@ -7,7 +7,7 @@ interface Props {
 }
 
 const {
-  title = "Shopify AI Translator - Translate Your Store in Minutes | PixelEvolve",
+  title = "SmartLang - Translate Your Shopify Store in Minutes | PixelEvolve",
   description = "AI-powered translation app for Shopify. Translate your store into 11 languages in minutes with smart brand protection. Free plan available.",
   image = "/og-image.svg",
   canonicalURL = Astro.url.href,
@@ -41,7 +41,7 @@ const fullImageURL = new URL(image, siteURL).toString();
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={fullImageURL} />
-    <meta property="og:site_name" content="Shopify AI Translator" />
+    <meta property="og:site_name" content="SmartLang" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -54,7 +54,7 @@ const fullImageURL = new URL(image, siteURL).toString();
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "Shopify AI Translator",
+      "name": "SmartLang",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
       "offers": [
