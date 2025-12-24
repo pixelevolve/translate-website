@@ -7,10 +7,10 @@ const plans = [
     price: "$0",
     tagline: "Perfect for trying out",
     features: [
-      { text: "1 language", included: true },
-      { text: "200 products", included: true },
-      { text: "Basic glossary (10 terms)", included: true },
-      { text: "Email support", included: true },
+      { text: "1 target language", included: true },
+      { text: "200 products/month", included: true },
+      { text: "10 glossary terms", included: true },
+      { text: "30-day history", included: true },
       { text: "Batch translation", included: false },
     ],
     buttonText: "Start Free",
@@ -20,33 +20,47 @@ const plans = [
   {
     tier: "Basic",
     price: "$19",
-    tagline: "For starting stores",
-    badge: "⭐ BEST VALUE",
+    tagline: "For growing stores",
     features: [
-      { text: "2 languages", included: true },
-      { text: "500 products", included: true },
-      { text: "Full glossary (50 terms)", included: true },
-      { text: "Email support", included: true },
+      { text: "2 target languages", included: true },
+      { text: "500 products/month", included: true },
+      { text: "50 glossary terms", included: true },
+      { text: "90-day history", included: true },
       { text: "Batch translation", included: true },
     ],
-    buttonText: "Choose Basic",
-    buttonStyle: "emerald" as const,
-    isFeatured: true,
+    buttonText: "Start 7-Day Trial",
+    buttonStyle: "blue" as const,
+    isFeatured: false,
   },
   {
     tier: "Pro",
     price: "$49",
-    tagline: "For growing stores",
+    tagline: "Most popular choice",
+    badge: "💎 RECOMMENDED",
     features: [
       { text: "Up to 10 languages", included: true },
       { text: "Unlimited products", included: true },
-      { text: "Full glossary (1,000 terms)", included: true },
-      { text: "Priority queue", included: true },
+      { text: "1,000 glossary terms", included: true },
+      { text: "Unlimited history", included: true },
       { text: "Priority support", included: true },
-      { text: "Batch translation", included: true },
     ],
-    buttonText: "Go Pro",
-    buttonStyle: "blue" as const,
+    buttonText: "Start 7-Day Trial",
+    buttonStyle: "purple" as const,
+    isFeatured: true,
+  },
+  {
+    tier: "Enterprise",
+    price: "Custom",
+    tagline: "For large operations",
+    features: [
+      { text: "Unlimited languages", included: true },
+      { text: "Unlimited products", included: true },
+      { text: "Unlimited glossary", included: true },
+      { text: "Dedicated account manager", included: true },
+      { text: "Custom integrations & SLA", included: true },
+    ],
+    buttonText: "Contact Sales",
+    buttonStyle: "indigo" as const,
     isFeatured: false,
   },
 ];
@@ -73,21 +87,24 @@ const includedFeatures = [
     </div>
 
     <!-- Pricing Cards -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-      {/* Mobile: Reorder to show Basic first */}
-      <div class="lg:hidden order-1">
-        <PricingCard {...plans[1]} />
-      </div>
-      <div class="lg:hidden order-2">
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-12">
+      {/* Mobile: Reorder to show Pro first */}
+      <div class="md:hidden order-1">
         <PricingCard {...plans[2]} />
       </div>
-      <div class="lg:hidden order-3">
+      <div class="md:hidden order-2">
+        <PricingCard {...plans[1]} />
+      </div>
+      <div class="md:hidden order-3">
+        <PricingCard {...plans[3]} />
+      </div>
+      <div class="md:hidden order-4">
         <PricingCard {...plans[0]} />
       </div>
 
       {/* Desktop: Normal order */}
       {plans.map((plan) => (
-        <div class="hidden lg:block">
+        <div class="hidden md:block">
           <PricingCard {...plan} />
         </div>
       ))}
