@@ -6,7 +6,7 @@ import LegalLayout from "../layouts/LegalLayout.astro";
   title="Privacy Policy"
   description="Privacy Policy for SmartLang by PixelEvolve AB"
 >
-  <p class="text-gray-500 mb-8">Last updated: December 2025</p>
+  <p class="text-gray-500 mb-8">Last updated: January 2026</p>
 
   <h2>1. Introduction</h2>
   <p>
@@ -19,11 +19,12 @@ import LegalLayout from "../layouts/LegalLayout.astro";
   <h3>Information from Shopify</h3>
   <p>When you install our app, we access the following data from your Shopify store:</p>
   <ul>
-    <li>Store information (name, domain, email)</li>
-    <li>Product data (titles, descriptions, tags, vendor information)</li>
-    <li>Collection data</li>
-    <li>Page content</li>
-    <li>Blog posts and articles</li>
+    <li>Store information (name, domain, email, locale settings)</li>
+    <li>Product data (titles, descriptions, SEO metadata)</li>
+    <li>Collection data (titles and descriptions)</li>
+    <li>Navigation menus</li>
+    <li>Metaobjects and custom content</li>
+    <li>Theme content</li>
   </ul>
 
   <h3>Information You Provide</h3>
@@ -33,63 +34,101 @@ import LegalLayout from "../layouts/LegalLayout.astro";
     <li>Support communications</li>
   </ul>
 
+  <h3>Usage Information</h3>
+  <ul>
+    <li>Translation history and statistics</li>
+    <li>Feature usage patterns</li>
+    <li>Error logs for troubleshooting</li>
+  </ul>
+
+  <h3>Billing Information</h3>
+  <p>Payment processing is handled entirely by Shopify. We do not store credit card numbers or payment details.</p>
+
   <h2>3. How We Use Your Information</h2>
   <p>We use the collected information to:</p>
   <ul>
     <li>Provide AI-powered translation services</li>
+    <li>Store translations for syncing to your Shopify store</li>
     <li>Protect your brand terms from translation</li>
-    <li>Improve our translation quality</li>
+    <li>Improve our translation quality and app features</li>
     <li>Provide customer support</li>
-    <li>Send important service updates</li>
+    <li>Manage your subscription through Shopify's billing system</li>
   </ul>
 
   <h2>4. Third-Party Services</h2>
   <p>We use the following third-party services:</p>
   <ul>
-    <li><strong>OpenAI:</strong> For AI translation processing. Your content is sent to OpenAI's API for translation. OpenAI's privacy policy applies to this processing.</li>
-    <li><strong>Shopify:</strong> As our platform provider. Shopify's privacy policy applies to data stored on their platform.</li>
+    <li><strong>OpenAI:</strong> For AI translation processing. Your content is sent to OpenAI's API for translation. We do not share personally identifiable information with OpenAI. OpenAI's privacy policy applies to this processing.</li>
+    <li><strong>Shopify:</strong> As our platform provider for authentication and billing. Shopify's privacy policy applies to data stored on their platform.</li>
   </ul>
 
+  <h3>Infrastructure Providers</h3>
+  <p>We use the following services to host and operate the App:</p>
+  <ul>
+    <li><strong>Fly.io:</strong> Application hosting</li>
+    <li><strong>Neon:</strong> Database storage (PostgreSQL)</li>
+    <li><strong>Upstash:</strong> Redis caching and job queues</li>
+  </ul>
+  <p>All providers are selected for their security practices and compliance standards.</p>
+
   <h2>5. Data Retention</h2>
-  <p>
-    We retain your data for as long as your app is installed. Upon uninstallation,
-    we delete your data within 30 days, except where required by law.
-  </p>
+  <ul>
+    <li><strong>Active Accounts:</strong> We retain your data while your App subscription is active</li>
+    <li><strong>Uninstallation:</strong> When you uninstall the App, we retain data for 30 days before deletion</li>
+    <li><strong>Translations:</strong> Stored translations are deleted upon uninstallation</li>
+    <li><strong>Logs:</strong> Error and usage logs are retained for 90 days</li>
+  </ul>
 
   <h2>6. Data Security</h2>
   <p>
-    We implement appropriate technical and organizational measures to protect your data,
-    including encryption in transit and at rest, secure access controls, and regular security audits.
+    We implement industry-standard security measures including:
   </p>
+  <ul>
+    <li>All data transmission uses HTTPS/TLS encryption</li>
+    <li>Database access is restricted and encrypted</li>
+    <li>API keys and secrets are stored securely</li>
+    <li>Regular security updates and monitoring</li>
+  </ul>
 
   <h2>7. Your Rights</h2>
   <p>You have the right to:</p>
   <ul>
-    <li>Access your personal data</li>
-    <li>Request correction of inaccurate data</li>
-    <li>Request deletion of your data</li>
-    <li>Object to data processing</li>
-    <li>Data portability</li>
+    <li><strong>Access:</strong> Request a copy of your stored data</li>
+    <li><strong>Correction:</strong> Request correction of inaccurate data</li>
+    <li><strong>Deletion:</strong> Request deletion of your data</li>
+    <li><strong>Export:</strong> Export your translation data</li>
+    <li><strong>Object:</strong> Object to data processing</li>
   </ul>
 
   <h2>8. GDPR Compliance</h2>
   <p>
-    For users in the European Economic Area, we comply with GDPR requirements.
-    PixelEvolve AB acts as a data processor on behalf of merchants (data controllers).
+    For users in the European Economic Area (EEA):
   </p>
-
-  <h2>9. Contact Us</h2>
-  <p>For privacy-related inquiries, contact us at:</p>
   <ul>
-    <li>Email: <a href="mailto:support@pixel-evolve.com">support@pixel-evolve.com</a></li>
-    <li>Company: PixelEvolve AB</li>
-    <li>Org.nr: 559493-7418</li>
-    <li>Location: Stockholm, Sweden</li>
+    <li>We process data based on legitimate business interests and your consent</li>
+    <li>You may withdraw consent at any time by uninstalling the App</li>
+    <li>You have the right to lodge a complaint with your local data protection authority</li>
   </ul>
 
-  <h2>10. Changes to This Policy</h2>
+  <h2>9. Children's Privacy</h2>
+  <p>
+    SmartLang is designed for business use and is not intended for children under 16.
+    We do not knowingly collect information from children.
+  </p>
+
+  <h2>10. Contact Us</h2>
+  <p>For privacy-related inquiries, contact us at:</p>
+  <ul>
+    <li>Email: <a href="mailto:privacy@pixel-evolve.com">privacy@pixel-evolve.com</a></li>
+    <li>Company: PixelEvolve AB</li>
+    <li>Org.nr: 559493-7418</li>
+    <li>Address: Smedjevägen 3 lgh 1101, Bromma, Stockholm, Sweden</li>
+  </ul>
+
+  <h2>11. Changes to This Policy</h2>
   <p>
     We may update this Privacy Policy from time to time. We will notify you of any
-    changes by posting the new Privacy Policy on this page and updating the "Last updated" date.
+    changes by posting the new Privacy Policy on this page, updating the "Last updated" date,
+    and sending an email notification for material changes.
   </p>
 </LegalLayout>
