@@ -7,9 +7,9 @@ const plans = [
     price: "$0",
     tagline: "Perfect for trying out",
     features: [
-      { text: "1 target language", included: true },
-      { text: "200 items/month", included: true },
-      { text: "10 glossary terms", included: true },
+      { text: "2 target languages", included: true },
+      { text: "500 items/month", included: true },
+      { text: "20 glossary terms", included: true },
       { text: "30-day history", included: true },
       { text: "Batch translation", included: false },
     ],
@@ -18,13 +18,28 @@ const plans = [
     isFeatured: false,
   },
   {
+    tier: "Starter",
+    price: "$9",
+    tagline: "Great for small stores",
+    features: [
+      { text: "3 target languages", included: true },
+      { text: "2,000 items/month", included: true },
+      { text: "100 glossary terms", included: true },
+      { text: "90-day history", included: true },
+      { text: "Batch translation", included: true },
+    ],
+    buttonText: "Start 7-Day Trial",
+    buttonStyle: "emerald" as const,
+    isFeatured: false,
+  },
+  {
     tier: "Basic",
     price: "$19",
     tagline: "For growing stores",
     features: [
-      { text: "2 target languages", included: true },
-      { text: "500 items/month", included: true },
-      { text: "50 glossary terms", included: true },
+      { text: "5 target languages", included: true },
+      { text: "5,000 items/month", included: true },
+      { text: "250 glossary terms", included: true },
       { text: "90-day history", included: true },
       { text: "Batch translation", included: true },
     ],
@@ -39,7 +54,7 @@ const plans = [
     badge: "💎 RECOMMENDED",
     features: [
       { text: "Up to 10 languages", included: true },
-      { text: "Unlimited items", included: true },
+      { text: "20,000 items/month", included: true },
       { text: "1,000 glossary terms", included: true },
       { text: "Unlimited history", included: true },
       { text: "Priority support", included: true },
@@ -87,18 +102,21 @@ const includedFeatures = [
     </div>
 
     <!-- Pricing Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-12">
       {/* Mobile: Reorder to show Pro first */}
       <div class="md:hidden order-1">
-        <PricingCard {...plans[2]} />
-      </div>
-      <div class="md:hidden order-2">
-        <PricingCard {...plans[1]} />
-      </div>
-      <div class="md:hidden order-3">
         <PricingCard {...plans[3]} />
       </div>
+      <div class="md:hidden order-2">
+        <PricingCard {...plans[2]} />
+      </div>
+      <div class="md:hidden order-3">
+        <PricingCard {...plans[1]} />
+      </div>
       <div class="md:hidden order-4">
+        <PricingCard {...plans[4]} />
+      </div>
+      <div class="md:hidden order-5">
         <PricingCard {...plans[0]} />
       </div>
 
