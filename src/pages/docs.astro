@@ -1,0 +1,503 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Documentation - SmartLang"
+  description="Learn how to use SmartLang to translate your Shopify store with AI"
+>
+  <main class="min-h-screen bg-gray-50">
+    <!-- Header -->
+    <div class="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl font-bold mb-4">SmartLang Documentation</h1>
+        <p class="text-xl text-purple-100">Learn how to translate your Shopify store with AI</p>
+      </div>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <nav class="bg-white rounded-xl shadow-sm p-6 mb-8">
+        <h2 class="text-lg font-semibold text-gray-900 mb-4">Table of Contents</h2>
+        <ul class="space-y-2 text-purple-600">
+          <li><a href="#getting-started" class="hover:underline">1. Getting Started</a></li>
+          <li><a href="#dashboard" class="hover:underline">2. Dashboard</a></li>
+          <li><a href="#products" class="hover:underline">3. Translating Products</a></li>
+          <li><a href="#collections" class="hover:underline">4. Translating Collections</a></li>
+          <li><a href="#menus" class="hover:underline">5. Translating Menus</a></li>
+          <li><a href="#metaobjects" class="hover:underline">6. Translating Metaobjects</a></li>
+          <li><a href="#theme-content" class="hover:underline">7. Translating Theme Content</a></li>
+          <li><a href="#glossary" class="hover:underline">8. Glossary Management</a></li>
+          <li><a href="#settings" class="hover:underline">9. Settings</a></li>
+          <li><a href="#billing" class="hover:underline">10. Billing & Plans</a></li>
+          <li><a href="#sync" class="hover:underline">11. Syncing to Shopify</a></li>
+          <li><a href="#faq" class="hover:underline">12. FAQ</a></li>
+        </ul>
+      </nav>
+
+      <!-- Content -->
+      <div class="bg-white rounded-xl shadow-sm p-8 prose prose-purple max-w-none">
+
+        <!-- Getting Started -->
+        <section id="getting-started">
+          <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">1. Getting Started</h2>
+
+          <h3>Step 1: Install SmartLang</h3>
+          <p>Install SmartLang from the Shopify App Store. After installation, you'll be redirected to the app dashboard.</p>
+
+          <h3>Step 2: Configure Languages</h3>
+          <ol>
+            <li>Go to <strong>Settings</strong> in the sidebar</li>
+            <li>Your <strong>Source Language</strong> is auto-detected from your Shopify store settings</li>
+            <li>Select your <strong>Target Languages</strong> - these are the languages you want to translate into</li>
+            <li>Click <strong>Save Changes</strong></li>
+          </ol>
+
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+            <p class="text-blue-700"><strong>Tip:</strong> Make sure your target languages are enabled in Shopify Admin → Settings → Languages before adding them in SmartLang.</p>
+          </div>
+
+          <h3>Step 3: Set Up Your Glossary (Recommended)</h3>
+          <p>Before translating, add your brand names and important terms to the Glossary. This ensures they're preserved or translated consistently across your store.</p>
+
+          <h3>Step 4: Start Translating</h3>
+          <p>Navigate to Products, Collections, or any content type and start translating!</p>
+        </section>
+
+        <hr class="my-8">
+
+        <!-- Dashboard -->
+        <section id="dashboard">
+          <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">2. Dashboard</h2>
+
+          <p>The Dashboard provides an overview of your translation progress across all content types.</p>
+
+          <h3>What You'll See</h3>
+          <ul>
+            <li><strong>Resource Cards:</strong> Shows progress for Products, Collections, Menus, Metaobjects, and Theme Content</li>
+            <li><strong>Progress Bars:</strong> Visual indicator of how many items have been translated</li>
+            <li><strong>Quick Actions:</strong> Jump directly to any section to start translating</li>
+            <li><strong>Plan Usage:</strong> See how many translations you've used this month</li>
+          </ul>
+
+          <h3>Progress Calculation</h3>
+          <p>Progress is calculated based on completed translations across all your target languages. An item is considered "fully translated" when all fields have been translated to all target languages.</p>
+        </section>
+
+        <hr class="my-8">
+
+        <!-- Products -->
+        <section id="products">
+          <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">3. Translating Products</h2>
+
+          <h3>Product List View</h3>
+          <p>The Products page shows all your Shopify products with their translation status.</p>
+
+          <h4>Translation Status Badges:</h4>
+          <ul>
+            <li><span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Completed</span> - All fields translated to all languages</li>
+            <li><span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm">Partial</span> - Some translations completed</li>
+            <li><span class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm">Pending</span> - Not yet translated</li>
+            <li><span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm">Outdated</span> - Source content changed since translation</li>
+          </ul>
+
+          <h3>Translating a Single Product</h3>
+          <ol>
+            <li>Click on any product row to open the detail view</li>
+            <li>You'll see a side-by-side editor with source text on the left and translation on the right</li>
+            <li>Click <strong>Translate</strong> to auto-translate using AI</li>
+            <li>Review and edit the translation if needed</li>
+            <li>Click <strong>Sync to Shopify</strong> to publish the translation</li>
+          </ol>
+
+          <h3>Batch Translation</h3>
+          <p>Translate multiple products at once:</p>
+          <ol>
+            <li>Select products using the checkboxes</li>
+            <li>Click <strong>Translate Selected</strong></li>
+            <li>Choose your target language(s)</li>
+            <li>The translations will be queued and processed automatically</li>
+          </ol>
+
+          <h3>Translate All</h3>
+          <p>To translate your entire catalog:</p>
+          <ol>
+            <li>Click <strong>Translate All</strong> button</li>
+            <li>Select target language(s)</li>
+            <li>Confirm the action</li>
+          </ol>
+
+          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
+            <p class="text-yellow-700"><strong>Note:</strong> Batch translations count against your monthly plan limit. Each product field translated to one language = 1 translation.</p>
+          </div>
+
+          <h3>Translatable Fields</h3>
+          <p>SmartLang translates these product fields:</p>
+          <ul>
+            <li>Title</li>
+            <li>Description (HTML preserved)</li>
+            <li>SEO Title (meta_title)</li>
+            <li>SEO Description (meta_description)</li>
+            <li>Product Metafields (if enabled)</li>
+          </ul>
+        </section>
+
+        <hr class="my-8">
+
+        <!-- Collections -->
+        <section id="collections">
+          <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">4. Translating Collections</h2>
+
+          <p>Collections work similarly to Products. You can translate:</p>
+          <ul>
+            <li>Collection Title</li>
+            <li>Collection Description</li>
+            <li>SEO Title</li>
+            <li>SEO Description</li>
+          </ul>
+
+          <h3>How to Translate Collections</h3>
+          <ol>
+            <li>Navigate to <strong>Collections</strong> in the sidebar</li>
+            <li>Select collections to translate or use "Translate All"</li>
+            <li>Review translations in the detail view</li>
+            <li>Sync to Shopify when ready</li>
+          </ol>
+        </section>
+
+        <hr class="my-8">
+
+        <!-- Menus -->
+        <section id="menus">
+          <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">5. Translating Menus</h2>
+
+          <p>Translate your store's navigation menus to help international customers navigate your site.</p>
+
+          <h3>What Gets Translated</h3>
+          <ul>
+            <li>Menu item titles</li>
+            <li>Nested menu items (submenus)</li>
+          </ul>
+
+          <h3>How to Translate Menus</h3>
+          <ol>
+            <li>Go to <strong>Menus</strong> in the sidebar</li>
+            <li>You'll see all your navigation menus (Main Menu, Footer Menu, etc.)</li>
+            <li>Click on a menu to see all its items</li>
+            <li>Translate individual items or use batch translation</li>
+          </ol>
+
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+            <p class="text-blue-700"><strong>Tip:</strong> Menu translations are essential for a good customer experience. Always translate your main navigation!</p>
+          </div>
+        </section>
+
+        <hr class="my-8">
+
+        <!-- Metaobjects -->
+        <section id="metaobjects">
+          <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">6. Translating Metaobjects</h2>
+
+          <p>Metaobjects are custom content types in Shopify (like FAQs, size guides, store locations, etc.).</p>
+
+          <h3>Supported Field Types</h3>
+          <ul>
+            <li>Single-line text</li>
+            <li>Multi-line text</li>
+            <li>Rich text</li>
+          </ul>
+
+          <h3>How to Translate Metaobjects</h3>
+          <ol>
+            <li>Go to <strong>Metaobjects</strong> in the sidebar</li>
+            <li>Select the metaobject type (e.g., "FAQ", "Size Guide")</li>
+            <li>View all entries of that type</li>
+            <li>Translate individual entries or use batch translation</li>
+          </ol>
+
+          <div class="bg-purple-50 border-l-4 border-purple-500 p-4 my-4">
+            <p class="text-purple-700"><strong>Note:</strong> Only text-based metaobject fields can be translated. Images, files, and references are not translatable.</p>
+          </div>
+        </section>
+
+        <hr class="my-8">
+
+        <!-- Theme Content -->
+        <section id="theme-content">
+          <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">7. Translating Theme Content</h2>
+
+          <p>Theme Content includes all the text strings in your Shopify theme (buttons, labels, section headings, etc.).</p>
+
+          <h3>What Gets Translated</h3>
+          <ul>
+            <li>Section headings and subheadings</li>
+            <li>Button text</li>
+            <li>Form labels</li>
+            <li>Custom theme settings text</li>
+          </ul>
+
+          <h3>How to Translate Theme Content</h3>
+          <ol>
+            <li>Go to <strong>Theme Content</strong> in the sidebar</li>
+            <li>Browse through your theme sections</li>
+            <li>Select items to translate</li>
+            <li>Review and sync to Shopify</li>
+          </ol>
+
+          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
+            <p class="text-yellow-700"><strong>Important:</strong> Theme content translation requires the Shopify Translate & Adapt app or Shopify Markets to be properly configured.</p>
+          </div>
+        </section>
+
+        <hr class="my-8">
+
+        <!-- Glossary -->
+        <section id="glossary">
+          <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">8. Glossary Management</h2>
+
+          <p>The Glossary is one of SmartLang's most powerful features. It ensures your brand names, product names, and important terms are handled correctly during translation.</p>
+
+          <h3>Term Actions</h3>
+          <table class="min-w-full">
+            <thead>
+              <tr class="bg-gray-50">
+                <th class="px-4 py-2 text-left">Action</th>
+                <th class="px-4 py-2 text-left">Description</th>
+                <th class="px-4 py-2 text-left">Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="px-4 py-2 font-medium">Keep</td>
+                <td class="px-4 py-2">Never translate this term</td>
+                <td class="px-4 py-2">"Nike" stays "Nike" in all languages</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="px-4 py-2 font-medium">Translate</td>
+                <td class="px-4 py-2">Always translate to a specific term</td>
+                <td class="px-4 py-2">"Running Shoes" → "Chaussures de Course" (French)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Adding Terms Manually</h3>
+          <ol>
+            <li>Go to <strong>Glossary</strong> in the sidebar</li>
+            <li>Click <strong>Add Term</strong></li>
+            <li>Enter the source term</li>
+            <li>Select action (Keep or Translate)</li>
+            <li>If translating, enter translations for each target language</li>
+            <li>Click <strong>Save</strong></li>
+          </ol>
+
+          <h3>Auto-Detected Brands</h3>
+          <p>SmartLang automatically detects brand names from your product vendors. Look for the "Detected Brands" section to quickly add them to your glossary.</p>
+
+          <h3>Glossary Limits by Plan</h3>
+          <table class="min-w-full">
+            <thead>
+              <tr class="bg-gray-50">
+                <th class="px-4 py-2 text-left">Plan</th>
+                <th class="px-4 py-2 text-left">Max Terms</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="px-4 py-2">Free</td><td class="px-4 py-2">20 terms</td></tr>
+              <tr class="bg-gray-50"><td class="px-4 py-2">Starter</td><td class="px-4 py-2">100 terms</td></tr>
+              <tr><td class="px-4 py-2">Basic</td><td class="px-4 py-2">250 terms</td></tr>
+              <tr class="bg-gray-50"><td class="px-4 py-2">Pro</td><td class="px-4 py-2">1,000 terms</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <hr class="my-8">
+
+        <!-- Settings -->
+        <section id="settings">
+          <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">9. Settings</h2>
+
+          <h3>Source Language</h3>
+          <p>This is the language your content is written in. It's auto-detected from your Shopify store's primary language and cannot be changed in SmartLang (change it in Shopify Admin → Settings → Languages).</p>
+
+          <h3>Target Languages</h3>
+          <p>These are the languages you want to translate into. To add a target language:</p>
+          <ol>
+            <li>Make sure the language is enabled in Shopify (Admin → Settings → Languages)</li>
+            <li>Go to SmartLang Settings</li>
+            <li>Click on the language to add it</li>
+            <li>Save changes</li>
+          </ol>
+
+          <h3>Language Limits by Plan</h3>
+          <table class="min-w-full">
+            <thead>
+              <tr class="bg-gray-50">
+                <th class="px-4 py-2 text-left">Plan</th>
+                <th class="px-4 py-2 text-left">Max Languages</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="px-4 py-2">Free</td><td class="px-4 py-2">2 languages</td></tr>
+              <tr class="bg-gray-50"><td class="px-4 py-2">Starter</td><td class="px-4 py-2">3 languages</td></tr>
+              <tr><td class="px-4 py-2">Basic</td><td class="px-4 py-2">5 languages</td></tr>
+              <tr class="bg-gray-50"><td class="px-4 py-2">Pro</td><td class="px-4 py-2">10 languages</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <hr class="my-8">
+
+        <!-- Billing -->
+        <section id="billing">
+          <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">10. Billing & Plans</h2>
+
+          <h3>Available Plans</h3>
+          <table class="min-w-full">
+            <thead>
+              <tr class="bg-gray-50">
+                <th class="px-4 py-2 text-left">Plan</th>
+                <th class="px-4 py-2 text-left">Price</th>
+                <th class="px-4 py-2 text-left">Languages</th>
+                <th class="px-4 py-2 text-left">Translations/mo</th>
+                <th class="px-4 py-2 text-left">Glossary Terms</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="px-4 py-2">Free</td><td class="px-4 py-2">$0</td><td class="px-4 py-2">2</td><td class="px-4 py-2">500</td><td class="px-4 py-2">20</td></tr>
+              <tr class="bg-gray-50"><td class="px-4 py-2">Starter</td><td class="px-4 py-2">$9/mo</td><td class="px-4 py-2">3</td><td class="px-4 py-2">2,000</td><td class="px-4 py-2">100</td></tr>
+              <tr><td class="px-4 py-2">Basic</td><td class="px-4 py-2">$19/mo</td><td class="px-4 py-2">5</td><td class="px-4 py-2">5,000</td><td class="px-4 py-2">250</td></tr>
+              <tr class="bg-gray-50"><td class="px-4 py-2">Pro</td><td class="px-4 py-2">$49/mo</td><td class="px-4 py-2">10</td><td class="px-4 py-2">20,000</td><td class="px-4 py-2">1,000</td></tr>
+            </tbody>
+          </table>
+
+          <h3>How Translations are Counted</h3>
+          <p>Each product field translated to one language counts as 1 translation.</p>
+          <p><strong>Example:</strong> Translating 10 products (with 4 fields each) to 5 languages:</p>
+          <p class="bg-gray-100 p-2 rounded font-mono">10 products × 4 fields × 5 languages = 200 translations</p>
+
+          <h3>Upgrading Your Plan</h3>
+          <ol>
+            <li>Go to <strong>Billing</strong> in the sidebar</li>
+            <li>Review the available plans</li>
+            <li>Click <strong>Start 7-Day Free Trial</strong> or <strong>Upgrade</strong></li>
+            <li>Confirm in Shopify's billing screen</li>
+          </ol>
+
+          <h3>Usage Resets</h3>
+          <p>Your translation count resets on the 1st of each month.</p>
+        </section>
+
+        <hr class="my-8">
+
+        <!-- Sync -->
+        <section id="sync">
+          <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">11. Syncing to Shopify</h2>
+
+          <p>After translating content, you need to sync it to Shopify for it to appear on your storefront.</p>
+
+          <h3>Single Item Sync</h3>
+          <ol>
+            <li>Open any translated item (product, collection, etc.)</li>
+            <li>Review the translation</li>
+            <li>Click <strong>Sync to Shopify</strong></li>
+          </ol>
+
+          <h3>Batch Sync</h3>
+          <ol>
+            <li>Select multiple items with completed translations</li>
+            <li>Click <strong>Sync Selected</strong></li>
+            <li>Translations will be pushed to Shopify</li>
+          </ol>
+
+          <h3>Sync Status</h3>
+          <ul>
+            <li><span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Synced</span> - Translation is live on your store</li>
+            <li><span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Not Synced</span> - Translation exists but not pushed to Shopify</li>
+            <li><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">Sync Failed</span> - Error occurred during sync</li>
+          </ul>
+
+          <h3>Where to See Translations</h3>
+          <p>After syncing, you can verify translations in:</p>
+          <ol>
+            <li>Shopify Admin → Settings → Languages → View translations</li>
+            <li>Your storefront (switch language using your language selector)</li>
+          </ol>
+        </section>
+
+        <hr class="my-8">
+
+        <!-- FAQ -->
+        <section id="faq">
+          <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">12. Frequently Asked Questions</h2>
+
+          <div class="space-y-6">
+            <div>
+              <h4 class="font-semibold text-gray-900">Q: Why isn't my translation showing on the storefront?</h4>
+              <p class="text-gray-600 mt-1">Make sure you've clicked "Sync to Shopify" after translating. Also verify that the target language is published in Shopify Admin → Settings → Languages.</p>
+            </div>
+
+            <div>
+              <h4 class="font-semibold text-gray-900">Q: Can I edit AI translations?</h4>
+              <p class="text-gray-600 mt-1">Yes! Click on any translated item to open the editor. You can modify the translation and then sync your changes.</p>
+            </div>
+
+            <div>
+              <h4 class="font-semibold text-gray-900">Q: What happens when I update my source content?</h4>
+              <p class="text-gray-600 mt-1">SmartLang automatically detects changes and marks affected translations as "Outdated". You can then re-translate those items.</p>
+            </div>
+
+            <div>
+              <h4 class="font-semibold text-gray-900">Q: How do I keep my brand name from being translated?</h4>
+              <p class="text-gray-600 mt-1">Add it to your Glossary with the "Keep" action. This tells our AI to never translate that term.</p>
+            </div>
+
+            <div>
+              <h4 class="font-semibold text-gray-900">Q: What AI model do you use?</h4>
+              <p class="text-gray-600 mt-1">SmartLang uses OpenAI's GPT-4o-mini model, optimized for fast and accurate translations.</p>
+            </div>
+
+            <div>
+              <h4 class="font-semibold text-gray-900">Q: Do translations count if they're cached?</h4>
+              <p class="text-gray-600 mt-1">Cached translations (re-translating identical content) do not count against your monthly limit.</p>
+            </div>
+
+            <div>
+              <h4 class="font-semibold text-gray-900">Q: What happens when I reach my plan limit?</h4>
+              <p class="text-gray-600 mt-1">You'll see a notification and won't be able to translate more items until the next billing cycle or until you upgrade.</p>
+            </div>
+
+            <div>
+              <h4 class="font-semibold text-gray-900">Q: Can I downgrade my plan?</h4>
+              <p class="text-gray-600 mt-1">Yes, you can downgrade anytime. Your existing translations will remain, but you'll be subject to the lower plan's limits.</p>
+            </div>
+          </div>
+        </section>
+
+        <hr class="my-8">
+
+        <!-- Support -->
+        <section id="support">
+          <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">Need Help?</h2>
+          <p>If you have questions not covered in this documentation, please contact us:</p>
+          <ul>
+            <li><strong>Email:</strong> <a href="mailto:support@pixel-evolve.com" class="text-purple-600">support@pixel-evolve.com</a></li>
+          </ul>
+          <p class="mt-4">We typically respond within 24 hours on business days.</p>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-8 mt-12">
+      <div class="max-w-4xl mx-auto px-4 text-center text-gray-600">
+        <p>&copy; 2026 SmartLang by PixelEvolve AB. All rights reserved.</p>
+        <p class="mt-2">
+          <a href="/privacy" class="text-purple-600 hover:underline">Privacy Policy</a>
+          <span class="mx-2">|</span>
+          <a href="/terms" class="text-purple-600 hover:underline">Terms of Service</a>
+        </p>
+      </div>
+    </footer>
+  </main>
+</BaseLayout>
